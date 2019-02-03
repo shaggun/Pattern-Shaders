@@ -2,6 +2,9 @@
 
 I will keep adding more patterns to this repository
 
+*Rotation is in radians: 1 rad × 180/π = 57.296°*
+
+
 **Checkerboard**
 
 ![gif](https://i.imgur.com/PEvKuTg.gif)
