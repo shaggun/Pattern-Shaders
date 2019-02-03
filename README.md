@@ -14,4 +14,8 @@ I will keep adding more patterns to this repository
 
 ![gif](https://i.imgur.com/PdcUKl2.gif)
 
+**Triangles**
+
+![gif](https://i.imgur.com/mtP5d64.gif)
+
 
