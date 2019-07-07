@@ -11,7 +11,7 @@ I will keep adding more patterns to this repository
 
 **Diamonds:**
 
-![gif](https://i.imgur.com/iAJHHPf.gif)
+<img src="https://i.imgur.com/iAJHHPf.gif" width="548" height="308">
 
 **Dots:**
 
@@ -23,7 +23,7 @@ I will keep adding more patterns to this repository
 
 **Sine Zigzag:**
 
-![gif](https://i.imgur.com/X6Z4IpA.gif)
+<img src="https://i.imgur.com/X6Z4IpA.gif" width="548" height="308">
 
 **Triangles:**
 
