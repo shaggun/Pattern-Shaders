@@ -1,4 +1,4 @@
-Shader "Pattern_SineZigzag"
+Shader "Pattern_Checkerboard"
 {
 	Properties
 	{
@@ -6,10 +6,7 @@ Shader "Pattern_SineZigzag"
 		_Color0("Color 0", Color) = (0,0,0,0)
 		_Color1("Color 1", Color) = (1,1,1,0)
 		_Rotation("Rotation", Float) = 0
-		_LineWidth("LineWidth", Float) = 0.5
-		_Tiling("Tiling", Float) = 3
-		_Frequency("Frequency", Float) = 1
-		_Amplitude("Amplitude", Float) = 0.25
+		_Tiling("Tiling", Float) = 16
 	}
 
 	SubShader
@@ -30,11 +27,8 @@ Shader "Pattern_SineZigzag"
 		uniform float4 _Texture_ST;
 		uniform float4 _Color1;
 		uniform float4 _Color0;
-		uniform float _Frequency;
-		uniform float _Rotation;
-		uniform float _Amplitude;
 		uniform float _Tiling;
-		uniform float _LineWidth;
+		uniform float _Rotation;
 
 		void surf( Input i , inout SurfaceOutputStandard o )
 		{
@@ -43,12 +37,10 @@ Shader "Pattern_SineZigzag"
 			float cosRes = cos( _Rotation );
 			float sinRes = sin( _Rotation );
 			float2 rotator = mul( vertexPos.xy - float2( 0,0 ) , float2x2( cosRes , -sinRes , sinRes , cosRes )) + float2( 0,0 );
-			float lerpResult = lerp( rotator.y , ( 1.0 - rotator.x ) , 0.0);
-			float lerpResult2 = lerp( rotator.x , rotator.y , 0.0);
-			float tempRes = ( ( asin( sin( ( _Frequency * lerpResult * ( 2.0 * UNITY_PI ) ) ) ) * _Amplitude ) + ( lerpResult2 * _Tiling ) );
-			float tempRes2 = ( tempRes * _Tiling );
-			float4 lerpResult3 = lerp( _Color1 , _Color0 , floor( ( frac( tempRes2 ) + _LineWidth ) ));
-			o.Albedo = ( tex2D( _Texture, uv_Texture ) * lerpResult3 ).rgb;
+			float2 temp = ( 0.5 * floor( ( _Tiling * rotator ) ) );
+			float normalizeResult = normalize( frac( ( temp.x + temp.y ) ) );
+			float4 lerpResult = lerp( _Color1 , _Color0 , step( normalizeResult , 1.0 ));
+			o.Albedo = ( tex2D( _Texture, uv_Texture ) * lerpResult ).rgb;
 			o.Alpha = 1;
 		}
 

@@ -4,7 +4,7 @@ Shader "Patttern_Dots"
 	{
 		_Texture("Texture Sample 0", 2D) = "white" {}
 		_Color0("Color 0", Color) = (0,0,0,0)
-		_Color1("Color 1", Color) = (0,0,0,0)		
+		_Color1("Color 1", Color) = (1,1,1,0)	
 		_Rotation("Rotation", Float) = 0
 		_radius("Radius", Float) = 0.3
 		_Tiling("Tiling", Float) = 16

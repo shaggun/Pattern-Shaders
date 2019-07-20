@@ -17,6 +17,10 @@ I will keep adding more patterns to this repository
 
 ![gif](https://i.imgur.com/3KHYfFF.gif)
 
+**Grid:**
+
+<img src="https://i.imgur.com/jXulvpW.gif" width="548" height="308">
+
 **Sine Waves:**
 
 ![gif](https://i.imgur.com/PdcUKl2.gif)
@@ -24,6 +28,10 @@ I will keep adding more patterns to this repository
 **Sine Zigzag:**
 
 <img src="https://i.imgur.com/X6Z4IpA.gif" width="548" height="308">
+
+**Stripes:** The same pattern can be achieved with the zigzag shader but this one is simpler.
+
+<img src="https://i.imgur.com/6eqEqZ6.gif" width="548" height="308">
 
 **Triangles:**
 

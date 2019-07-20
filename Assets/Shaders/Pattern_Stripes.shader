@@ -1,12 +1,13 @@
-Shader "Pattern_Checkerboard"
+Shader "Pattern_Stripes"
 {
 	Properties
 	{
 		_Texture("Texture Sample 0", 2D) = "white" {}
-		_Color0("Color 0", Color) = (0,0,0,0)
 		_Color1("Color 1", Color) = (0,0,0,0)
+		_Color0("Color 0", Color) = (1,1,1,0)
 		_Rotation("Rotation", Float) = 0
-		_Tiling("Tiling", Float) = 16
+		_LineWidth("LineWidth", Float) = 0.5
+		_Tiling("Tiling", Float) = 3
 	}
 
 	SubShader
@@ -27,8 +28,9 @@ Shader "Pattern_Checkerboard"
 		uniform float4 _Texture_ST;
 		uniform float4 _Color1;
 		uniform float4 _Color0;
-		uniform float _Tiling;
 		uniform float _Rotation;
+		uniform float _Tiling;
+		uniform float _LineWidth;
 
 		void surf( Input i , inout SurfaceOutputStandard o )
 		{
@@ -37,10 +39,9 @@ Shader "Pattern_Checkerboard"
 			float cosRes = cos( _Rotation );
 			float sinRes = sin( _Rotation );
 			float2 rotator = mul( vertexPos.xy - float2( 0,0 ) , float2x2( cosRes , -sinRes , sinRes , cosRes )) + float2( 0,0 );
-			float2 temp = ( 0.5 * floor( ( _Tiling * rotator ) ) );
-			float normalizeResult = normalize( frac( ( temp.x + temp.y ) ) );
-			float4 lerpResult = lerp( _Color1 , _Color0 , step( normalizeResult , 1.0 ));
-			o.Albedo = ( tex2D( _Texture, uv_Texture ) * lerpResult ).rgb;
+			float lerpResult = lerp( rotator.x , rotator.y , 0.0);
+			float4 lerpResult2 = lerp( _Color1 , _Color0 , floor( ( frac( lerpResult * _Tiling ) + _LineWidth ) ));
+			o.Albedo = ( tex2D( _Texture, uv_Texture ) * lerpResult2 ).rgb;
 			o.Alpha = 1;
 		}
 

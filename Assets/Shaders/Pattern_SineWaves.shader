@@ -4,7 +4,7 @@ Shader "Pattern_SineWaves"
 	{
 		_Texture("Texture Sample 0", 2D) = "white" {}
 		_Color0("Color 0", Color) = (0,0,0,0)
-		_Color1("Color 1", Color) = (0,0,0,0)
+		_Color1("Color 1", Color) = (1,1,1,0)
 		_Rotation("Rotation", Float) = 0
 		_LineWidth("LineWidth", Float) = 0.5
 		_Tiling("Tiling", Float) = 3

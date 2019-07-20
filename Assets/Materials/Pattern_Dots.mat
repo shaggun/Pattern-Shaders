@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Patttern_Dots
+  m_Name: Pattern_Dots
   m_Shader: {fileID: 4800000, guid: cb8e3e75b436f9d4d8f5f41eef632954, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
